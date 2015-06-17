@@ -12,7 +12,8 @@
 									= entry.voting.score ? entry.voting.score : '-'
 							.col-md-6
 								.comments
-									= entry.comments_count ? entry.comments_count : '-'
+									a href=""
+										= entry.comments_count ? entry.comments_count : '-'
 					.user
 						a href="https://news.ycombinator.com/user?id=#{entry.user ? entry.user.name : '-'}" target="_BLANK" = entry.user ? entry.user.name : '-'
 						

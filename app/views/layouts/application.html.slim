@@ -19,41 +19,30 @@ html
 	body
     nav.navbar.navbar-default.navbar-static-top
       .container
-        .row.row-no-padding
-        .col-md-12
-          .navbar-header
-            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand href="#"  HNow
-          #navbar.navbar-collapse.collapse
-            ul.nav.navbar-nav.navbar-right
-              li class="#{(session[:filter].blank? or session[:filter] == "main") ? 'active' : ''}"
-                = link_to "Main", hn_index_path(filter: 'main')
-              li class="#{session[:filter] and session[:filter] == "newest" ? 'active' : ''}"
-                = link_to "New", hn_index_path(filter: 'newest')
-              li class="#{session[:filter] and session[:filter] == "shows" ? 'active' : ''}"
-                = link_to "Show", hn_index_path(filter: 'shows')
-              li class="#{session[:filter] and session[:filter] == "questions" ? 'active' : ''}"
-                = link_to "Ask", hn_index_path(filter: 'questions')
-              li class="#{session[:filter] and session[:filter] == "jobs" ? 'active' : ''}"
-                = link_to "Jobs", hn_index_path(filter: 'jobs')
-              
-          /! /.nav-collapse
-
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="/"  HNow
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li class="#{(session[:filter].blank? or session[:filter] == "main" and not params[:action] == "about" ) ? 'active' : ''}"
+              = link_to "Main", hn_index_path(filter: 'main')
+            li class="#{session[:filter] and session[:filter] == "newest" ? 'active' : ''}"
+              = link_to "New", hn_index_path(filter: 'newest')
+            li class="#{session[:filter] and session[:filter] == "shows" ? 'active' : ''}"
+              = link_to "Show", hn_index_path(filter: 'shows')
+            li class="#{session[:filter] and session[:filter] == "questions" ? 'active' : ''}"
+              = link_to "Ask", hn_index_path(filter: 'questions')
+            li class="#{session[:filter] and session[:filter] == "jobs" ? 'active' : ''}"
+              = link_to "Jobs", hn_index_path(filter: 'jobs')
+            li class="#{params[:action] == "about" ? 'active' : ''}"
+              = link_to "About", about_hn_index_path
+            
+        /! /.nav-collapse
 
     .container
       .wrapper
         == yield
-    
-    footer
-      .container
-        p.text-muted 
-          | Made by 
-          a href="https://twitter.com/daviducolo" 
-            | Davide Santangelo 
-          | Fork me on 
-          a href="https://github.com/davidesantangelo/hnow"
-            | GitHub    

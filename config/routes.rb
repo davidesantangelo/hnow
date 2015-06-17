@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :hn, except: [:show], path: "/" do
     collection do
       get 'loadentries' => 'hn#loadentries' 
+      get 'about' => 'hn#about' 
     end
   end
   # Example of regular route:
