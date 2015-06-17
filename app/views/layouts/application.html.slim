@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    meta charset="UTF-8"
+  	title HNow #{session[:filter] ? " - #{session[:filter].capitalize}" : " - Main"}
+ 
+    = stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true
+  	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = stylesheet_link_tag    'animate', media: 'all', 'data-turbolinks-track' => true
+  	= csrf_meta_tags 
+    = favicon_link_tag 'favicon.ico'
+    
+    link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'
+        
+    meta name="description" content="HNow - A new and alternative interface to Hacker News"
+    meta name="keywords" content="davide santangelo, hacker news, news, tech"
+    /![if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]
+	body
+    nav.navbar.navbar-default.navbar-static-top
+      .container
+        .row.row-no-padding
+        .col-md-12
+          .navbar-header
+            button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button" 
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand href="#"  HNow
+          #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-right
+              li class="#{(session[:filter].blank? or session[:filter] == "main") ? 'active' : ''}"
+                = link_to "Main", hn_index_path(filter: 'main')
+              li class="#{session[:filter] and session[:filter] == "newest" ? 'active' : ''}"
+                = link_to "New", hn_index_path(filter: 'newest')
+              li class="#{session[:filter] and session[:filter] == "shows" ? 'active' : ''}"
+                = link_to "Show", hn_index_path(filter: 'shows')
+              li class="#{session[:filter] and session[:filter] == "questions" ? 'active' : ''}"
+                = link_to "Ask", hn_index_path(filter: 'questions')
+              li class="#{session[:filter] and session[:filter] == "jobs" ? 'active' : ''}"
+                = link_to "Jobs", hn_index_path(filter: 'jobs')
+              
+          /! /.nav-collapse
+
+
+    .container
+      .wrapper
+        == yield
+    
+    footer
+      .container
+        p.text-muted 
+          | Made by 
+          a href="https://twitter.com/daviducolo" 
+            | Davide Santangelo 
+          | Fork me on 
+          a href="https://github.com/davidesantangelo/gameoflife"
+            | GitHub    

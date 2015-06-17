@@ -1,0 +1,96 @@
+@import bootstrap-sprockets
+@import bootstrap
+@import font-awesome
+
+html
+	position: relative
+	min-height: 100%
+
+body
+	font-family: 'Roboto', sans-seri
+	font-size: 15px
+	line-height: 1.6
+	background: #F4F4F4
+
+.wrapper
+	margin: 0px 15px 40px 15px
+
+.navbar-default
+	background: none
+	padding: 15px 0
+	border: 0
+	border-bottom: 2px solid #DB704E
+
+.entry
+	-webkit-transition: all .3s ease
+	-moz-transition: all .3s ease
+	transition: all .3s ease
+	padding: 15px
+	background: #fff
+	height: 200px
+	margin-bottom: 20px
+	color: #444
+	position: relative
+	
+	.info
+		position: absolute
+		left: 28px
+		bottom: 15px
+		font-size: 0.8em
+		
+		.score
+			padding: 2px
+			width: 40px
+			background: #DB704E
+			color: #fff
+			text-align: center
+		
+		.comments
+			padding: 2px
+			width: 40px
+			background: #ccc
+			color: #fff
+			text-align: center
+
+	.user
+		position: absolute
+		right: 15px
+		bottom: 15px
+		font-size: 0.8em
+		padding: 2px
+		color: #DB704E
+		text-align: center
+
+		a
+			color: #DB704E
+	
+.row-no-padding
+	[class*="col-"] 
+		padding-left: 10px !important
+		padding-right: 10px !important
+
+.row-no-padding-strict
+	[class*="col-"] 
+		padding-left: 2px !important
+		padding-right: 2px !important
+  
+.centered 
+	position: fixed
+	top: 50%
+	left: 50%
+	margin-top: -32px
+	margin-left: -32px
+
+
+footer 
+	position: absolute
+	bottom: 0
+	width: 100%
+	text-align: center
+	
+.text-muted
+	font-size: 1em
+
+@media only screen and (max-width:400px) 
+	.text-muted
+		font-size: 0.8em

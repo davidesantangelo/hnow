@@ -1,0 +1,22 @@
+.entries
+	.row.row-no-padding
+		- @entries.each do |entry|
+			.col-md-4
+				.entry.animated.fadeIn
+					a href="#{entry.link.href}"
+						= entry.link.title.strip
+					.info
+						.row.row-no-padding-strict
+							.col-md-6
+								.score
+									= entry.voting.score ? entry.voting.score : '-'
+							.col-md-6
+								.comments
+									= entry.comments_count ? entry.comments_count : '-'
+					.user
+						a href="https://news.ycombinator.com/user?id=#{entry.user ? entry.user.name : '-'}" target="_BLANK" = entry.user ? entry.user.name : '-'
+						
+
+
+
+				
