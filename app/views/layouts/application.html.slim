@@ -28,15 +28,15 @@ html
           a.navbar-brand href="/"  HNow
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
-            li class="#{(session[:filter].blank? or session[:filter] == "main" and not params[:action] == "about" ) ? 'active' : ''}"
+            li class="#{((session[:filter].blank? or session[:filter]) == "main" and not params[:action] == "about" ) ? 'active' : ''}"
               = link_to "Main", hn_index_path(filter: 'main')
-            li class="#{session[:filter] and session[:filter] == "newest" ? 'active' : ''}"
+            li class="#{(session[:filter] and session[:filter]) == "newest" ? 'active' : ''}"
               = link_to "New", hn_index_path(filter: 'newest')
-            li class="#{session[:filter] and session[:filter] == "shows" ? 'active' : ''}"
+            li class="#{(session[:filter] and session[:filter]) == "shows" ? 'active' : ''}"
               = link_to "Show", hn_index_path(filter: 'shows')
-            li class="#{session[:filter] and session[:filter] == "questions" ? 'active' : ''}"
+            li class="#{(session[:filter] and session[:filter]) == "questions" ? 'active' : ''}"
               = link_to "Ask", hn_index_path(filter: 'questions')
-            li class="#{session[:filter] and session[:filter] == "jobs" ? 'active' : ''}"
+            li class="#{(session[:filter] and session[:filter]) == "jobs" ? 'active' : ''}"
               = link_to "Jobs", hn_index_path(filter: 'jobs')
             li class="#{params[:action] == "about" ? 'active' : ''}"
               = link_to "About", about_hn_index_path

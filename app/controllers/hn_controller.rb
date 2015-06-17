@@ -2,6 +2,10 @@
 class HnController < ApplicationController
 	include RubyHackernews
 	
+	def about
+		session[:filter] = nil
+	end
+
 	def index
 		session[:filter] = params[:filter]
 	end
