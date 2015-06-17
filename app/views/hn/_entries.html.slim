@@ -3,7 +3,7 @@
 		- @entries.each do |entry|
 			.col-md-4
 				.entry.animated.fadeIn
-					a href="#{entry.link.href}"
+					a href="#{(entry.link.href.include? 'item?id=') ? "https://news.ycombinator.com/#{entry.link.href}" : entry.link.href}"
 						= entry.link.title.strip
 					.info
 						.row.row-no-padding-strict
