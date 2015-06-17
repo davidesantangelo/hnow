@@ -28,7 +28,7 @@ html
           a.navbar-brand href="/"  HNow
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
-            li class="#{((session[:filter].blank? or session[:filter]) == "main" and not params[:action] == "about" ) ? 'active' : ''}"
+            li class="#{((session[:filter].blank? or session[:filter] == "main") and not params[:action] == "about" ) ? 'active' : ''}"
               = link_to "Main", hn_index_path(filter: 'main')
             li class="#{(session[:filter] and session[:filter]) == "newest" ? 'active' : ''}"
               = link_to "New", hn_index_path(filter: 'newest')
