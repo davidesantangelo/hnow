@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/bolthar/ruby-hackernews.git
-  revision: 6e0896beb997585c3d654435904b4f0910283dd7
+  revision: 491db3702fa298c855db2da75ffe0014b6c380a5
   specs:
     ruby-hackernews (1.3.8)
       mechanize (>= 1.0.0)
